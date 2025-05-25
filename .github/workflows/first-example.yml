@@ -1,8 +1,9 @@
 name: My-First-GitHub-Action
 
 on:
-    push:
-        branches: [ "main" ]
+    schedule:
+        - cron: '*/1 * * * *'
+#        branches: [ "main" ]
 
 jobs:
     first-job:
