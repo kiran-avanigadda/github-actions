@@ -8,26 +8,26 @@ env:
     CONTAINER-REGISTRY: docker.io
     DOCKER-USERNAME: kiran3
     DOCKER-PASSWORD: Kir@n6330
-    IMAGE-NAME: github-actions-nginx      
+    IMAGE-NAME: k8s-web-to-nginx      
       
 jobs:
     docker:
         runs-on: ubuntu-latest
         steps:
             - name: Docker Build
-              run: echo docker build -t ${{ env.CONTAINER-REGISTRY }}/${{ env.DOCKER-USERNAME }}/${{ env.IMAGE-NAME }}:latest
+              run: echo docker build -t ${{ env.CONTAINER-REGISTRY }}/${{ env.DOCKER-USERNAME }}/${{ env.IMAGE-NAME }}:latest-mar-25
 
             - name: Docker Login
               run: echo docker login --username=${{ env.DOCKER-USERNAME }} --password=${{ env.DOCKER-PASSWORD }}
 
             - name: Docker publish
-              run: echo docker push ${{ env.CONTAINER-REGISTRY }}/${{ env.DOCKER-USERNAME }}/${{ env.IMAGE-NAME }}:latest
+              run: echo docker push ${{ env.CONTAINER-REGISTRY }}/${{ env.DOCKER-USERNAME }}/${{ env.IMAGE-NAME }}:latest-mar-25
               
     deploy:
         needs: docker
         runs-on: ubuntu-latest
         steps:
             - name: Docker Run
-              run: echo docker run -d -p 8080:80 ${{ env.CONTAINER-REGISTRY }}/${{ env.DOCKER-USERNAME }}/${{ env.IMAGE-NAME }}:latest      
+              run: echo docker run -d -p 8080:80 ${{ env.CONTAINER-REGISTRY }}/${{ env.DOCKER-USERNAME }}/${{ env.IMAGE-NAME }}:latest-mar-25      
               
               
