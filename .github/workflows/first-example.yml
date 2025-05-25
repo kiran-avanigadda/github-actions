@@ -10,9 +10,17 @@ jobs:
         steps:    
         - name: Checkout the repository.
           uses: actions/checkout@v4     
-           
+
         - name: Welcome message
           run: |
             echo "Welcome to GitHub-Actions"
             ls
-            cat README.md 
+            cat README.md
+
+        - name: Install cowsay tool
+          run: |
+            sudo apt update -y
+            sudo apt install cowsay -y    
+
+        - name: Generate ASCII text
+          run: cowsay -f dragon "Run for cover, I am a DRAGON...RAWR" >> dragon.txt    
