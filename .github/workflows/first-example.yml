@@ -7,7 +7,10 @@ on:
 jobs:
     first-job:
         runs-on: ubuntu-latest
-        steps:
+        steps:    
+        - name: Checkout the repository.
+          uses: actions/checkout@v4     
+           
         - name: Welcome message
           run: |
             echo "Welcome to GitHub-Actions"
