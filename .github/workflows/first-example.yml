@@ -2,7 +2,8 @@ name: My-First-GitHub-Action
 
 on:
     schedule:
-        - cron: '*/1 * * * *'
+        - cron: '*/2 * * * *'
+    workflow_dispatch:
 #        branches: [ "main" ]
 
 jobs:
