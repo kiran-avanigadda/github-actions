@@ -1,0 +1,19 @@
+name: Explore Matrix Strategy
+
+on: 
+    push:
+    workflow_dispatch:
+    
+jobs:
+    deploy:
+        strategy:
+            matrix:
+                os: [ubuntu-latest, ubuntu-24.04]
+                images: [hello-world, alpine]
+        runs-on: ${{ matrix.os }}
+        steps:
+        - name: Echo Docker details
+          run:  docker info   
+          
+        - name: Run Image on ${{ matrix.images }}
+          run:  docker info  ${{ matrix.images }}   
