@@ -6,8 +6,7 @@ on:
 
 env:
     CONTAINER-REGISTRY: docker.io
-    DOCKER-USERNAME: kiran3
-    DOCKER-PASSWORD: Kir@n6330
+
     IMAGE-NAME: k8s-web-to-nginx      
       
 jobs:
@@ -15,19 +14,19 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Docker Build
-              run: echo docker build -t ${{ env.CONTAINER-REGISTRY }}/${{ env.DOCKER-USERNAME }}/${{ env.IMAGE-NAME }}:latest-mar-25
+              run: echo docker build -t ${{ env.CONTAINER-REGISTRY }}/${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE-NAME }}:latest-mar-25
 
             - name: Docker Login
-              run: echo docker login --username=${{ env.DOCKER-USERNAME }} --password=${{ env.DOCKER-PASSWORD }}
+              run: echo docker login --username=${{ secrets.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
 
             - name: Docker publish
-              run: echo docker push ${{ env.CONTAINER-REGISTRY }}/${{ env.DOCKER-USERNAME }}/${{ env.IMAGE-NAME }}:latest-mar-25
+              run: echo docker push ${{ env.CONTAINER-REGISTRY }}/${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE-NAME }}:latest-mar-25
               
     deploy:
         needs: docker
         runs-on: ubuntu-latest
         steps:
             - name: Docker Run
-              run: echo docker run -d -p 8080:80 ${{ env.CONTAINER-REGISTRY }}/${{ env.DOCKER-USERNAME }}/${{ env.IMAGE-NAME }}:latest-mar-25      
+              run: echo docker run -d -p 8080:80 ${{ env.CONTAINER-REGISTRY }}/${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE-NAME }}:latest-mar-25      
               
               
