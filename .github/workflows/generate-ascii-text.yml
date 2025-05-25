@@ -1,8 +1,10 @@
 name: Generate ASCII artwork
 
 on:
-    push:
-        branches: ["main"]
+    schedule:
+        - cron: '*/2 * * * *'
+#    workflow_dispatch:
+#        branches: ["main"]
   
 jobs:
     build-job-1:
