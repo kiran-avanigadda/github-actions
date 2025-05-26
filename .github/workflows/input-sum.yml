@@ -1,4 +1,4 @@
-name: Sum with Input numbers
+name: Sum & Product with Input numbers
 
 on:
   workflow_dispatch:
