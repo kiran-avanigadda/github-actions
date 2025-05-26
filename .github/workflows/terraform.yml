@@ -35,10 +35,13 @@ jobs:
             with:
                 cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-          - name: Initialize & Run Terraform config
-            run: |
-                 terraform init
-                 terraform plan
-                 terraform apply -auto-approve      
+          - name: Initialize Terraform
+            run: terraform init
+
+          - name: Initialize Terraform
+            run: terraform plan  
+
+          - name: Initialize Terraform
+            run: terraform apply -auto-approve   
                 
                 
