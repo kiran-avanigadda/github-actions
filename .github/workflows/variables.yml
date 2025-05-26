@@ -18,3 +18,15 @@ jobs:
       run: echo "$greeting $first_name, you are on $cloud and your project is ${{ vars.PROJECT_NAME }}"
       env:
         first_name: Kiran..!!
+
+  Context-Variables:
+    runs-on: ubuntu-latest
+    
+    steps:
+     - name: Exlpore different context variables
+       run: |
+            echo "GitHub repo name is ${{ github.repository.name }}"
+            echo "GitHub workflow name is ${{ github.workflow.name }}"   
+            echo "GitHub worflow triggered by ${{ github.triggering_actor }}"
+            echo "GitHub event type is ${{ github.event }}"
+            echo "GiHub workspace is ${{ github.workspace }}"
