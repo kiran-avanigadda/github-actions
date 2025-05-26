@@ -21,10 +21,10 @@ jobs:
         steps:
           - name: Add the numbers
             id: sum
-            run: echo "::set-output name=sum::$((${{ inputs.number-1 }} + ${{ inputs.number-2 }}))"
+            run: echo "sum=$((${{ inputs.number-1 }} + ${{ inputs.number-2 }}))" >> $GITHUB_OUTPUT
 
           - name: Get the ouput of Sum
-            run: echo "The sum of ${{ inputs.number-1 }} and ${{ inputs.number-2 }} is ${{ steps.sum.outputs.sum }}"
+            run: echo "The sum of ${{ inputs.number-1 }} and ${{ inputs.number-2 }} is $GITHUB_OUTPUT"
 
           - name: Multiply the numbers
             id: product
