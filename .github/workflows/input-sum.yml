@@ -24,4 +24,11 @@ jobs:
             run: echo "::set-output name=sum::$((${{ inputs.number-1 }} + ${{ inputs.number-2 }}))"
 
           - name: Get the ouput of Sum
-            run: echo "The sum of ${{ inputs.number-1 }} and ${{ inputs.number-2 }} is $${{ steps.sum.outputs.sum }}"  
+            run: echo "The sum of ${{ inputs.number-1 }} and ${{ inputs.number-2 }} is $${{ steps.sum.outputs.sum }}"
+
+          - name: Multiply the numbers
+            id: product
+            run: echo "::set-output name=product::$((${{ inputs.number-1 }} * ${{ inputs.number-2 }}))"
+
+          - name: Get the ouput of product
+            run: echo "The product of ${{ inputs.number-1 }} and ${{ inputs.number-2 }} is $${{ steps.product.outputs.product }}"      
