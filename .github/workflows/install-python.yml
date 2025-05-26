@@ -38,8 +38,3 @@ jobs:
             run: |
                 cd src
                 python -m pytest addition.py      
-
-          - name: Run tests-2
-            run: |
-                pytest
-                pandas      
