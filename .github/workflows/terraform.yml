@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
         - main
+  workflow_dispatch:      
 
 permissions:
     contents: read    
@@ -38,10 +39,15 @@ jobs:
           - name: Initialize Terraform
             run: terraform init
 
-          - name: Initialize Terraform
+          - name: Plan Terraform
             run: terraform plan  
 
-          - name: Initialize Terraform
-            run: terraform apply -auto-approve   
+          - name: Apply Terraform
+            run: |
+                terraform apply -auto-approve
+                sleep 60s
+                
+          - name: Destroy Infra
+            run: terraform destroy -auto-approve      
                 
                 
