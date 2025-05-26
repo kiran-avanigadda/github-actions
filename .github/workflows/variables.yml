@@ -1,0 +1,20 @@
+name: Exploring Variables at each levels
+
+on:
+  workflow_dispatch:
+
+env:
+    cloud: AWS  
+
+
+jobs:
+  Greetings_Job:
+    runs-on: ubuntu-latest
+    env:
+      greeting: Hello..!!
+    
+    steps:    
+    - name: Greetings to the user
+      run: echo "$greeting $first_name, you are on $cloud."
+      env:
+        first_name: Kiran
