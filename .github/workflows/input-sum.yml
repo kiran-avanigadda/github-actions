@@ -1,0 +1,27 @@
+name: Sum with Input numbers
+
+on:
+  workflow_dispatch:
+    
+    inputs:
+        number-1:
+            description: 'Enter first number'
+            default: '0'
+            required: true
+
+        number-2:
+            description: 'Enter second number'
+            default: '0'
+            required: true  
+                
+jobs:
+    sum-with-input:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Add the numbers
+            id: sum
+            run: echo "::set-output name=sum::$((${{ inputs.number-1 }} + ${{ inputs.number-2 }}))"
+
+          - name: Get the ouput of Sum
+            run: echo "The sum of ${{ inputs.number-1 }} and ${{ inputs.number-2 }} is $${{ steps.sum.outputs.sum }}"  
