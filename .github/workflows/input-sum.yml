@@ -31,4 +31,4 @@ jobs:
             run: echo "::set-output name=product::$((${{ inputs.number-1 }} * ${{ inputs.number-2 }}))"
 
           - name: Get the ouput of product
-            run: echo "The product of ${{ inputs.number-1 }} and ${{ inputs.number-2 }} is $${{ steps.product.outputs.product }}"      
+            run: echo "The product of ${{ inputs.number-1 }} and ${{ inputs.number-2 }} is ${{ steps.product.outputs.product }}"      
