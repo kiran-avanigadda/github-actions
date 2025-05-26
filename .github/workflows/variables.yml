@@ -25,8 +25,8 @@ jobs:
     steps:
      - name: Exlpore different context variables
        run: |
-            echo "GitHub repo name is ${{ github.repository.name }}"
-            echo "GitHub workflow name is ${{ github.workflow.name }}"   
+            echo "GitHub repo name is ${{ github.repository }}"
+            echo "GitHub workflow name is ${{ github.workflow }}"   
             echo "GitHub worflow triggered by ${{ github.triggering_actor }}"
             echo "GitHub event type is ${{ github.event }}"
             echo "GiHub workspace is ${{ github.workspace }}"
