@@ -27,7 +27,11 @@ jobs:
 
           - name: Get the ouput of Sum
             run: echo "The sum of ${{ inputs.number-1 }} and ${{ inputs.number-2 }} is ${{ steps.sum.outputs.sum }}"
-
+    
+    product-with-input:
+        runs-on: ubuntu
+        steps: 
+            
           - name: Multiply the numbers
             id: product
             run: |
