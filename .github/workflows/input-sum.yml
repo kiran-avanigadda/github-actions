@@ -29,7 +29,7 @@ jobs:
             run: echo "The sum of ${{ inputs.number-1 }} and ${{ inputs.number-2 }} is ${{ steps.sum.outputs.sum }}"
     
     product-with-input:
-        runs-on: ubuntu
+        runs-on: ubuntu-latest
         steps: 
             
           - name: Multiply the numbers
