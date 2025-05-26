@@ -21,7 +21,9 @@ jobs:
         steps:
           - name: Add the numbers
             id: sum
-            run: echo "sum= ${{ inputs.number-1 }} + ${{ inputs.number-2 }}" >> $GITHUB_OUTPUT
+            run: |
+                sum=$((${{ inputs.number-1 }} + ${{ inputs.number-2 }}))
+                echo "sum=$sum" >> $GITHUB_OUTPUT
 
           - name: Get the ouput of Sum
             run: echo "The sum of ${{ inputs.number-1 }} and ${{ inputs.number-2 }} is ${{ steps.sum.outputs.sum }}"
