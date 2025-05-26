@@ -36,7 +36,7 @@ jobs:
             id: product
             run: |
                 product=$((${{ inputs.number-1 }} * ${{ inputs.number-2 }}))
-                echo "product=$product"  >> $GITHUB_OUTOUT
+                echo "product=$product"  >> $GITHUB_OUTPUT
 
 
           - name: Get the ouput of product
