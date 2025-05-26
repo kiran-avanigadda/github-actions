@@ -11,10 +11,10 @@ jobs:
   Greetings_Job:
     runs-on: ubuntu-latest
     env:
-      greeting: Hello..!!
+      greeting: Hello
     
     steps:    
     - name: Greetings to the user
-      run: echo "$greeting $first_name, you are on $cloud."
+      run: echo "$greeting $first_name, you are on $cloud and your project is ${{ vars.PROJECT_NAME }}"
       env:
-        first_name: Kiran
+        first_name: Kiran..!!
